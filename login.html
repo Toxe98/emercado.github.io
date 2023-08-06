@@ -22,18 +22,32 @@
 
     <h1 class="h3 mb-3 fw-normal">Inicia Sesion</h1>
     <!-- Form para el login-->
-    <form action="" id="loginForm">
+    <form action="" id="form">
       
         <!-- Agrego inputs para el ingreso del mail y la contraseñá-->
         <div class="form-floating">  
-        <input type="email" class="form-control" id="floatinInput" placeholder="name@example.com">
+        <input 
+            type="email" 
+            class="form-control" 
+            name="floatingInput"
+            id="floatinInput" 
+            placeholder="name@example.com"
+            >
+
         <label for="floatinInput">Ingrese su email</label>
 
         </div>
 
         <div class="form-floating">
 
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+          <input 
+              type="password" 
+              class="form-control" 
+              name="floatingPassword" 
+              id="floatingPassword" 
+              placeholder="Contraseña"
+          >
+
           <label for="floatingPassword">Ingrese su contraseña</label>
 
         </div>
@@ -46,8 +60,7 @@
           </label>
         </div>
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit" id="loginBtn">Iniciar Sesion</button>
-
+        <input class="w-100 btn btn-lg btn-primary" value="Iniciar Sesion" type="submit" onclick="auth()"></input>
 
       
     </form>

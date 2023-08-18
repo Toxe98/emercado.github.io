@@ -9,98 +9,35 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style>
 </head>
 
 <body>
-  
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link " href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-          <a class="nav-link active" href="login.html">Login</a>
-        </ul>
-      </div>
+  <main class="mt-5">
+    <div class="container-login">
+      <img src="img/login.png" class="imagen1">
+      <h2> Login </h2>
+      <form class="inputs" id="logForm" method="post" action=""> 
+        <label for="uname"> Usuario </label>
+        <input type="text" class="nombre" id="uname" placeholder="&#xf007;  Usuario" style="font-family: Arial, FontAwesome;" name="uname" required>
+        <label for="pass"> Contraseña </label>
+        <input type="password" class="nombre" id="psw" placeholder="&#xf084;  Contraseña" style="font-family: Arial, FontAwesome;" name="psw" required>
+        <button type="submit" class="btn btn-outline-primary" id="btnSubmit" value="submit"> <strong> Iniciar sesión </strong></button>
+      </form>
+      <footer class="text-muted">
+        <div class="footer">
+          <p class="float-none">
+            <a href="index.html">Volver a la página principal</a>
+          </p>
+          <p class="float-none">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+        </div>
+      </footer>
+     
+      
     </div>
-  </nav>
-
-  <main class="mt-5 form-login">
-    <div class="container">
-
-    <h1 class="h3 mb-3 fw-normal">Inicia Sesion</h1>
-    <!-- Form para el login-->
-    <form action="" id="form">
-      
-        <!-- Agrego inputs para el ingreso del mail y la contraseñá-->
-        <div class="form-floating">  
-        <input 
-            type="email" 
-            class="form-control" 
-            name="floatingInput"
-            id="username" 
-            placeholder="name@example.com"
-            >
-
-        <label for="floatinInput">Ingrese su email</label>
-
-        </div>
-
-        <div class="form-floating">
-
-          <input 
-              type="password" 
-              class="form-control" 
-              name="floatingPassword" 
-              id="password" 
-              placeholder="Contraseña"
-          >
-
-          <label for="floatingPassword">Ingrese su contraseña</label>
-
-        </div>
-        <!-- Ingreso un checkbox para marcar si quiere recordar el correo y contraseña-->
-        <div class="checkbox mb-3">
-          <label for="">
-
-            <input type="checkbox" value="remember-me"> Recordarme 
-
-          </label>
-        </div>
-
-        <input class="w-100 btn btn-lg btn-primary" value="Iniciar Sesion" type="submit" onclick="auth()"></input>
-
-      
-    </form>
-      </div>
   </main>
-  <!--Conservo el footer casi original al dado-->
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
+  
   <script src="js/login.js"></script>
+  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

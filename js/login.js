@@ -1,11 +1,21 @@
-function auth() {
-    let email = document.getElementById('username').value;
-    let password = document.getElementById('password').value;
-    if(email == 'admin@gmail.com' && password == '1234'){
-        window.location.assign('index.html');
-        alert('Iniciando Sesión');     
-    } else {
-        alert("Datos Incorrectos, ingrese nuevamente");
-        return;
-    }  
-};
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    
+    const formLogin = document.getElementById('logForm');
+    const usr = document.getElementById('uname');
+    const pwd = document.getElementById('psw');
+    
+
+    formLogin.addEventListener('submit', submit);
+        
+        function submit (event) {
+            event.preventDefault();
+            window.location.href = "index.html";
+            localStorage.setItem('User', usr.value);
+            localStorage.setItem('Pass', pwd.value);
+        };   
+});
+
+
+

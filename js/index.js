@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function(){
-    
-    
 
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
@@ -14,16 +12,11 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
-
-    let usuario = localStorage.getItem('uname');
-    if(usuario =="" || usuario==null){
-        document.getElementById('uname').innerHTML=usuario;
-    } else {
-    document.getElementById('salir').addEventListener('click', function (){
-        localStorage.removeItem('uname');
-        location.href="login.html"
-    });
-    }
 });
+
+let user= localStorage.getItem("User");
+if (!user) {
+    location.href = "login.html"
+};
 
 

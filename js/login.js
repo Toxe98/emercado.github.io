@@ -1,10 +1,5 @@
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    
-    const formLogin = document.getElementById('logForm');
-    const usr = document.getElementById('uname');
-    const pwd = document.getElementById('psw');
+const formLogin = document.getElementById('logForm');
+const usr = document.getElementById('uname');
     
 
     formLogin.addEventListener('submit', submit);
@@ -13,9 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
             window.location.href = "index.html";
             localStorage.setItem('User', usr.value);
-            localStorage.setItem('Pass', pwd.value);
-        };   
-});
-
-
+        };
+    
 

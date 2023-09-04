@@ -1,13 +1,27 @@
 document.addEventListener("DOMContentLoaded", function(){
     
-    let user = localStorage.getItem('User');
-    let pass = localStorage.getItem('Pass');
+    //Función que verifica mediante getItem si la key llamada User existe. De no existir redirige al usuario a la pestaña de login mediante location.href.
+
+    let user= localStorage.getItem("User");
+
+    function checkLogin() {
+        if (!user) {
+                location.href = "login.html"
+            };
+    } checkLogin();
     
-   
-    if (user === null || pass === null) {
-        localStorage.setItem('User',"");
-        localStorage.setItem('Pass',"");
-    } else if (user === "" || pass === "") {
-        window.location.href = "login.html";
-    } 
+    //Llamar al espacio donde se colocara el nombre y colocar la variable usuario para que se visualice.
+    function userName() {
+        document.getElementById("spaceUser").innerHTML=user;
+    } userName();
+
+    //Al hacer click se elimina al usuario del localStorage y se redirige al login.
+    document.getElementById('salir').addEventListener('click', cerrarSesion);
+    
+    function cerrarSesion(event) {
+        event.preventDefault();
+        localStorage.removeItem('User');
+        location.href="login.html"
+    };
+
 });

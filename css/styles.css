@@ -47,6 +47,7 @@ nav a {
     padding-bottom: 6rem;
   }
   
+  
 }
 
 .jumbotron p:last-child {
@@ -236,6 +237,18 @@ body {
   padding: 1.5rem 0 1.5rem 0;
 }
 
+.nombre#searchProduct {
+  border-width: 0 0 3px;
+  width: 400px;
+  height: 10px;
+  padding: 1rem 0 1rem 0;
+  margin: 0.2rem 0 0 1rem;
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.658);
+  text-indent: 5px;
+  
+}
+
 .nombre::placeholder {
   font-family: Arial, FontAwesome; 
   font-size: 15px
@@ -281,6 +294,7 @@ body {
   margin-left: 5rem !important;
   
 }
+
 
 .container-login > h2 {
   font-weight: 700;

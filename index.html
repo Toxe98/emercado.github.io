@@ -9,6 +9,10 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
@@ -21,13 +25,24 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item ms-6">
-            <a class="nav-link active" href="index.html">Inicio</a>
+            
+            <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
+              <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
+              <span class="homeIcon">Inicio</span>
+              
+            </a>
           </li>
           <li class="nav-item ms-6">
-            <a class="nav-link" href="categories.html">Categorías</a>
+            <a class="nav-link" href="categories.html">
+              <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
+              <span class="categoryIcon">Categorias</span>
+            </a>
           </li>
           <li class="nav-item ms-6">
-            <a class="nav-link" href="sell.html">Vender</a>
+            <a class="nav-link" href="sell.html">
+              <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
+              <span class="venderIcon">Vender</span>
+            </a>
           </li>
           <li class="nav-item ms-6">
             <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
@@ -42,10 +57,13 @@
   <main>
     <div class="jumbotron text-center"></div>
     <div class="album py-5 bg-light">
+
+
       <div class="container">
         <div class="row">
+          
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="autos">
+            <div class="cardCategory mb-4 shadow-sm custom-card cursor-active" id="autos">
               <img class="bd-placeholder-img card-img-top" src="img/cars_index.jpg"
                 alt="Imgagen representativa de la categoría 'Autos'">
               <h3 class="m-3">Autos</h3>
@@ -55,7 +73,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="juguetes">
+            <div class="cardCategory mb-4 shadow-sm custom-card cursor-active" id="juguetes">
               <img class="bd-placeholder-img card-img-top" src="img/toys_index.jpg"
                 alt="Imgagen representativa de la categoría 'Juguetes'">
               <h3 class="m-3">Juguetes</h3>
@@ -65,7 +83,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="card mb-4 shadow-sm custom-card cursor-active" id="muebles">
+            <div class="cardCategory mb-4 shadow-sm custom-card cursor-active" id="muebles">
               <img class="bd-placeholder-img card-img-top" src="img/furniture_index.jpg"
                 alt="Imgagen representativa de la categoría 'Muebles'">
               <h3 class="m-3">Muebles</h3>
@@ -92,6 +110,8 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/index.js"></script>
   <script src="js/init.js"></script>
+  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+  
   
 </body>
 

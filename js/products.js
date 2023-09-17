@@ -32,14 +32,15 @@ document.addEventListener("DOMContentLoaded", async () => {
       let currency = products[i].currency;
       let soldCount = products[i].soldCount;
       let image = products[i].image;
-
+      let productID = products[i].id;
+      
       const divs = document.createElement("div");
 
       divs.setAttribute("class", "hideShow"); //Crea una clase a cada div para referenciar en el DOM.
 
       divs.innerHTML = `
       
-      <div class="">
+      <div class="articleProduct cursor-active" id="${productID}" onclick="seleccionarProducto(id)">
           <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
               <div class="my-2 py-2">
   
@@ -104,6 +105,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     btnFiltrar.addEventListener("click", () => {
       filtrarProductos();
       mostrarProductos();
+      
     });
 
     // Event listener para el botón de limpiar
@@ -165,7 +167,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     8- Si el valor existe (es mayor a -1) entonces se ocultan los div que no contienen el valor mediante el uso de display: none. De esta forma solo se visualizan los div 
     que coinciden con el buscador.
 
-  */
+  */   
 });
+
+function seleccionarProducto(id) {
+  localStorage.setItem("id", id);
+  window.location.href= 'product-info.html';
+}
+
+
 
 //FINAL MERGEADO

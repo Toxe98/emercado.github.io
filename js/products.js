@@ -21,9 +21,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   let products = json.products;
   let productsDef = json.products;
 
+  //Variable que verifica si el tamaño de pantalla concuerda con pantallas chicas
+  let xMedia = window.matchMedia("(max-width: 786px)");
+
+
   // Función para mostrar los productos en el contenedor.
   function mostrarProductos() {
     container.innerHTML = "";
+
+    
 
     for (let i = 0; i < products.length; i++) {
       let name = products[i].name;
@@ -38,29 +44,51 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       divs.setAttribute("class", "hideShow"); //Crea una clase a cada div para referenciar en el DOM.
 
-      divs.innerHTML = `
+      /*Función que verifica si el tamaño de pantalla actual está dentro de un rango de tamaños y 
+      cambia la manera en que se ven los productos si estos se visualizan desde pantallas en ese rango.
+      Se aplica el mismo formato de categorías */
       
-      <div class="articleProduct cursor-active" id="${productID}" onclick="seleccionarProducto(id)">
-          <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
-              <div class="my-2 py-2">
-  
-                    <div class="d-flex shadow justify-content-between ">
-                      <div class="d-flex">
-                        <img src="${image}" class="p-2" width="250px">
-                        <div class="ms-3">
-                          <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
-                          <p id=descDiv${i}>${description}</p>
-                        </div>   
-                      </div>   
-                      <small class="me-3 mt-2"> ${soldCount} vendidos</small>
-                    </div>
+      function checkMedia (mediaQ) {
+        if (mediaQ.matches) {
+          divs.innerHTML = 
+          `
+          <div class="card" id="${productID}" onclick="seleccionarProducto(id)">
+          <img src="${image}" class="img-thumbnail" alt="${description}">
+          <div class="card__content">
+            <p class="card__title" id=nameDivR${i}>${name} - ${currency} ${cost}</p>
+            <p class="card__description" id=descDivR${i}> ${description} </p>
+            <small class="card__description"> ${soldCount} vendidos</small>
+          </div>`
+        } else {
+          divs.innerHTML = `
+      
+          <div class="container-fluid cursor-active" id="${productID}" onclick="seleccionarProducto(id)">
+              <div class="text-bg-dark me-sm-3 pt-5 px-3 pt-md-5 px-md-5">
+                  <div class="my-2 py-2">
+      
+                        <div class="d-flex shadow justify-content-between ">
+                          <div class="d-flex">
+                            <img src="${image}" class="p-2" width="250px" height="200px">
+                            <div class="ms-3">
+                              <p class="h2 fw-normal" id=nameDiv${i}>${name} - ${currency} ${cost}</p> 
+                              <p id=descDiv${i}>${description}</p>
+                            </div>   
+                          </div>   
+                          <small class="me-3 mt-2"> ${soldCount} vendidos</small>
+                        </div>
+                  </div>
               </div>
           </div>
-      </div>
           `;
+        }
+      };
+
+      checkMedia (xMedia);
       container.appendChild(divs);
     }
 
+    
+    
     document
       .getElementById("sortAsc")
       .addEventListener("click", filtrarPrecioAsc);
@@ -120,6 +148,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Mostrar los productos por defecto
   mostrarProductos();
 
+
   //Desafíate
 
   function searchFilter() {
@@ -128,22 +157,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     searchbar.addEventListener("input", () => {
       for (let i = 0; i < products.length; i++) {
-        let nameDiv = document.querySelectorAll(
-          "#nameDiv0, #nameDiv1, #nameDiv2, #nameDiv3, #nameDiv4"
-        );
-        let descDiv = document.querySelectorAll(
-          "#descDiv0, #descDiv1, #descDiv2, #descDiv3, #descDiv4"
-        );
+        
+        let nameDiv;
+        let descDiv;
 
+        if (xMedia.matches) {
+          nameDiv = document.querySelectorAll(
+            "#nameDivR0, #nameDivR1, #nameDivR2, #nameDivR3, #nameDivR4"
+          );
+          descDiv = document.querySelectorAll(
+            "#descDivR0, #descDivR1, #descDivR2, #descDivR3, #descDivR4"
+          );
+          
+        } else {
+          nameDiv = document.querySelectorAll(
+            "#nameDiv0, #nameDiv1, #nameDiv2, #nameDiv3, #nameDiv4"
+          );
+          descDiv = document.querySelectorAll(
+            "#descDiv0, #descDiv1, #descDiv2, #descDiv3, #descDiv4"
+          );
+          
+        }
         let inputSearch = searchbar.value.toUpperCase();
 
         let searchObj = nameDiv[i].innerText + descDiv[i].innerText;
 
-        if (searchObj.toUpperCase().indexOf(inputSearch) > -1) {
+        if (
+          searchObj.toUpperCase().indexOf(inputSearch) > -1 ) {
           divsHideShow[i].style.display = "";
         } else {
           divsHideShow[i].style.display = "none";
         }
+      
       }
     });
   }

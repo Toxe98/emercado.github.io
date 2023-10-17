@@ -39,9 +39,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("salir").addEventListener("click", cerrarSesion);
 
   function cerrarSesion(event) {
-    console.log("pedo");
     event.preventDefault();
     localStorage.removeItem("User");
+    localStorage.removeItem("themePreference");
     location.href = "login.html";
   }
+
+
 });
+
+//funcion para botones volver atras
+function goBack() {
+  // Vuelve a la página anterior
+  window.history.back();
+}
+

@@ -13,38 +13,143 @@
 
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark p-1">
-    <div class="container">
+    <div class="container-fluid w-100" >
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+        <ul class="navbar-nav flex-row w-100 justify-content-between">
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <a class="nav-link active" href="index.html"> <!--AGREGUÉ ICONOS AL NAVBAR-->
+              <i class="fa-solid fa-house fa-lg" style="color: #f38d3a;"></i>
+              <span class="homeIcon">Inicio</span>
+
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="categories.html">
+              <i class="fa-solid fa-list fa-lg" style="color: #f5c49c;"></i>
+              <span class="categoryIcon">Categorias</span>
+            </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <a class="nav-link" href="sell.html">
+              <i class="fa-solid fa-handshake fa-lg" style="color: #f5c49c;"></i>
+              <span class="venderIcon">Vender</span>
+            </a>
           </li>
-          <li class="nav-item ms-6">
-            <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+            <div class="toggle-btn" id="btn-dark">
+              <img src="img/night-mode.png" id="btnIcon">
+            </div>
           </li>
-          <li class="nav-item ms-6">
-            <a class="nav-link" id="salir" href=""> Cerrar Sesion</a>
+          <li class="nav-item  px-lg-5 px-sm-3 px-1">
+
+            <div class="dropdown">
+              <i class="fa-solid fa-user"></i>
+              <a class="nav-link" id="spaceUser" href="my-profile.html"></a>
+              <div class="dropdown-content">
+                <a href="cart.html"> <i class="fa-solid fa-cart-shopping"></i> Mi carrito</a>
+                <a href="my-profile.html"><i class="fa-solid fa-user"></i> Mi perfil </a>
+                <a id="salir" href=""><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a>
+              </div>
+            </div>
           </li>
+
         </ul>
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  
+  <main class="container-fluid">
+    <div class="btnAtras">
+      <button  onclick="goBack()" id="btnAtrasProductInfo"><i class="fa-solid fa-arrow-left fa-l" style="color: white;"></i> Volver </button>
+    </div>
+    <div class="text-center mt-3">
+      <h1>Carrito</h1>
+    </div>
+   <div class="table-responsive mt-4 shadow-lg p3 mb-5 bg-body rounded">
+      <table class=" table table-responsive mx-auto w-100  text-center table-hover align-middle">
+        <thead>
+          <tr>
+          <th><strong>Nombre</strong></th>
+          <th><strong>Costo</strong></th>
+          <th><strong>Cantidad</strong></th>
+          <th><strong>Subtotal</strong></th>
+        </tr>
+        </thead>
+        <tbody id="contenidoCarrito">
+  
+        </tbody>
+      </table>
       </div>
     </div>
+
+<!--DIVS PARA TIPO DE ENVIO Y DATOS DE ENVIO, punto 2 entrega 5-->
+    <div id="datosCompra" class="container-fluid">
+      <h2>Tipo de envio</h2>
+        <div id="tipoEnvio"  class="container-fluid">
+          
+          <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
+          <input class="inputTipoEnvio" type="radio" name="card" value="standar">
+          <span class="check"></span>
+          <label class="labelTipoEnvio">
+            <div class="title"><h5 class="title">Standard</h5></div>
+            <div class="price">
+              <span class="span">12 a 15 días</span>
+              
+            </div>
+          </label>
+        </div>
+        <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
+          <input class="inputTipoEnvio" type="radio" name="card" value="express">
+          <span class="check"></span>
+          <label class="labelTipoEnvio">
+            <div class="title"><h5 class="title">Express</h5></div>
+            <div class="price">
+              <span class="span">5 a 8 días</span>
+              
+
+            </div>
+          </label>
+        </div>
+        <div class="cardCompras"> <!--tarjetitas de los tipos de envio con sus respectivos radiobuttons-->
+          <input class="inputTipoEnvio" type="radio" name="card" value="premium">
+          <span class="check"></span>
+          <label class="labelTipoEnvio">
+            <div class="title"><h5 class="title">Premium</h5></div>
+            <div class="price">
+              <span class="span">2 a 5 días</span>
+            
+              
+            </div>
+          </label>
+        </div>
+          </div>
+
+          <div id="direccionEnvio" class="flex-container"> <!--contenedor para los datos de la dirección a enviar-->
+            <h2>Direccion de envio</h2>
+            <input type="text" name="" class="inputDireccion" placeholder="Calle">
+            <input type="number" name="" class="inputDireccion" placeholder="Numero">
+            <input type="text" class="inputDireccion" placeholder="Esquina">
+                </div> 
+                <button id="botonEnviar">Comprar</button>
+        </div>
+
+
+
+
+
+        
+          
+        
+        
+  
+    
+
+      
   </main>
   <footer class="text-muted">
     <div class="container">
@@ -63,8 +168,11 @@
     </div>
   </div>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/index.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="https://kit.fontawesome.com/d765d1fb24.js" crossorigin="anonymous"></script>
+  <script src="js/dark-mode.js"></script>
 </body>
 
 </html>
